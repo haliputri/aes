@@ -1,0 +1,34 @@
+{% extends "index.html" %}
+{% block title %}Esai{% endblock title %}
+{% block head %}<link rel="stylesheet" href="../static/admin.css" />{% endblock head %}
+{% block body_content %}
+<body id="body-pd">
+    {% include "components/navigation.html" %}
+    {% include "components/userSidebar.html" %}
+    <!--Container Main start-->
+    <!-- <div class="height-100 bg-light">
+        <h4>Daftar Esai</h4>
+    </div> -->
+    <div class="container" style="padding-top:40px;">
+        <p style="font-weight: bold;">Sisa Waktu : <span style="font-weight: normal;">1 Jam 30 Menit</span></p>
+        <div style="background-color:#e4e2ed; padding:24px; border-radius:4px;">
+            <form method="POST" action="/user/soal">
+                <div>
+                    <label for="soal"><b>Soal Esai </b></label><br>
+                    <input type="text" id="soal" name="soal" style="width: 100%; padding:8px; background-color: rgba(255, 255, 255, 0.8);
+                border: 1px solid #ccc; border-radius:4px;"
+                        value="Apa yang menjadikan tantangan jika terjadi perpindahan karena iklim?" readonly><br>
+                </div>
+                <div class="mt-2 mb-2">
+                    <label for="answer"><b>Jawaban</b></label><br>
+                    <textarea type="text" class="answer form-control" id="answer" name="answer"
+                        style="height: 100px; border-color: black;"></textarea>
+                </div>
+                <input type="submit" value="Submit" class="btn"
+                    style="background-color: #5B4D99; color:white;font-weight:bold; width:100px;margin-top:16px;" />
+            </form>
+        </div>
+    </div>
+    <script src="../static/sidebar.js"></script>
+</body>
+{% endblock body_content %}

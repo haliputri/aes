@@ -1,0 +1,253 @@
+{% extends "index.html" %} {% block title %}Admin | Detail{% endblock title %}
+{% block head %}
+<link rel="stylesheet" href="../static/admin.css" />
+<style>
+  .nav {
+    flex-direction: row !important; /* Reset to default value */
+    justify-content: flex-start !important; /* Reset to default value */
+  }
+  @media screen and (min-width: 768px) {
+    .show {
+      width: 100vw; /* 100% of the viewport width */
+    }
+  }
+</style>
+{% endblock head %} {% block body_content %}
+<body id="body-pd">
+  {% include "components/navigation.html" %}
+  <div class="l-navbar" id="nav-bar" style="background-color: #5b4d99">
+    <nav class="nav">
+      <div>
+        <a href="/admin" class="nav_logo">
+          <img src="../static/logo.png" alt="" style="height: 40px"
+        /></a>
+        <div class="nav_list">
+          <a href="/admin" class="nav_link">
+            <i class="bx bx-grid-alt nav_icon"></i
+            ><span class="nav_name">Dashboard</span>
+          </a>
+          <a href="adminEsai" class="nav_link active">
+            <i class="bx bx-message-square-detail nav_icon"></i>
+            <span class="nav_name">Essays</span>
+          </a>
+          <a href="adminPengguna" class="nav_link">
+            <i class="bx bx-user nav_icon"></i>
+            <span class="nav_name">Users</span>
+          </a>
+        </div>
+      </div>
+      <a href="/" class="nav_link">
+        <i class="bx bx-log-out nav_icon"></i>
+        <span class="nav_name">SignOut</span>
+      </a>
+    </nav>
+  </div>
+  <!--Container Main start-->
+  <!-- <div class="height-100 bg-light">
+          <h4>Daftar Esai</h4>
+      </div> -->
+  <ul class="nav nav-tabs pt-4" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link active"
+        id="home-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#home"
+        type="button"
+        role="tab"
+        aria-controls="home"
+        aria-selected="true"
+      >
+        Info Soal
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link"
+        id="profile-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#profile"
+        type="button"
+        role="tab"
+        aria-controls="profile"
+        aria-selected="false"
+      >
+        Pekerjaan Siswa
+      </button>
+    </li>
+  </ul>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div
+      class="tab-pane active"
+      id="home"
+      role="tabpanel"
+      aria-labelledby="home-tab"
+      tabindex="0"
+      style="color: black"
+    >
+      <div class="mb-3 mt-3">
+        <label
+          for="mata_pelajaran"
+          class="form-label"
+          style="font-weight: bold; color: #6a757b"
+          >Subjek mata pelajaran</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="mata_pelajaran"
+          placeholder="Sejarah"
+          disabled
+        />
+      </div>
+      <div class="mb-3">
+        <label
+          for="judul_topik"
+          class="form-label"
+          style="font-weight: bold; color: #6a757b"
+          >Judul Topik</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="judul_topik"
+          placeholder="Topik Manusia Purba"
+          disabled
+        />
+      </div>
+      <div class="mb-3">
+        <label
+          for="pertanyaan_topik"
+          class="form-label"
+          style="font-weight: bold; color: #6a757b"
+          >Pertanyaan terkait topik</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="pertanyaan_topik"
+          placeholder="Pertanyaan"
+          disabled
+        />
+      </div>
+      <div class="mb-3">
+        <label
+          for="time"
+          class="form-label"
+          style="font-weight: bold; color: #6a757b"
+          >Waktu pengerjaan</label
+        >
+        <input
+          type="time"
+          class="form-control"
+          id="time"
+          placeholder=""
+          style="width: 150px"
+          disabled
+        />
+      </div>
+      <div class="mb-3">
+        <label
+          for="formFile"
+          class="form-label"
+          style="font-weight: bold; color: #6a757b"
+          >Upload Model</label
+        >
+        <input class="form-control" type="file" id="formFile" disabled />
+      </div>
+    </div>
+    <div
+      class="tab-pane mt-2 mb-2"
+      id="profile"
+      role="tabpanel"
+      aria-labelledby="profile-tab"
+      tabindex="0"
+      style="color: #212529; width: 100%"
+    >
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+    style="
+    background-color: #5b4d99;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: white;
+  "
+    >
+      Daftar Mahasiswa
+  </button>
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Daftar Siswa</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row" style="padding:1rem;">
+            <table>
+              <tr>
+                <td style="border: 1px solid #ccc; padding: .5rem;"><input type="checkbox" id="myCheckbox" name="myCheckbox" class="me-3"></td>
+                <td style="border: 1px solid #ccc; padding: .5rem;">Hali Putri Aisyah</td>
+                <td style="border: 1px solid #ccc; padding: .5rem;">1408010200006</td>
+              </tr>
+            </table>
+            
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Nama Siswa</th>
+            <th scope="col">Jawaban</th>
+            <th scope="col">Hasil Prediksi</th>
+            <th scope="col">Nilai Akhir</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Melda fitriani</td>
+            <td>Air merupakan salah satu benda mati di kehidupan ini</td>
+            <td>0.75</td>
+            <td>4 Point</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    const exampleModal = document.getElementById("exampleModal");
+    if (exampleModal) {
+      exampleModal.addEventListener("show.bs.modal", (event) => {
+        // Button that triggered the modal
+        const button = event.relatedTarget;
+        // Extract info from data-bs-* attributes
+        const recipient = button.getAttribute("data-bs-whatever");
+        // If necessary, you could initiate an Ajax request here
+        // and then do the updating in a callback.
+
+        // Update the modal's content.
+        const modalTitle = exampleModal.querySelector(".modal-title");
+        const modalBodyInput = exampleModal.querySelector(".modal-body input");
+
+        modalTitle.textContent = `New message to ${recipient}`;
+        modalBodyInput.value = recipient;
+      });
+    }
+  </script>
+  <script src="../static/sidebar.js"></script>
+</body>
+{% endblock body_content %}

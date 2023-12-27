@@ -1,0 +1,11 @@
+<header class="header" id="header">
+    <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle" style="color:#5B4D99;"></i> </div>
+    <div style="display: flex; align-items: center; height: 100%;">
+        <div style="margin-top: auto;margin-right:1rem;">
+            <p style="font-weight: bold;">Hi, {{ user_name }}</p>
+        </div>
+        <div class="header_img">
+            <img src="{{ url_for('static', filename='burung.jpg') }}" alt="">
+        </div>
+    </div>
+</header>

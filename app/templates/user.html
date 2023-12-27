@@ -1,0 +1,50 @@
+{% extends "index.html" %} 
+{% block title %}Dashboard | User{% endblock title %}
+{% block head %}
+<link rel="stylesheet" href="../static/admin.css" />
+{% endblock head %}
+{% block body_content %}
+<body id="body-pd">
+  {% include "components/navigation.html" %} {% include
+  "components/userSidebar.html" %}
+  <!--Container Main start-->
+  <!-- <div class="height-100 bg-light">
+        <h4>Daftar Esai</h4>
+    </div> -->
+  <div style="padding-top: 2rem">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">No.</th>
+          <th scope="col">Soal Esai</th>
+          <th scope="col">Kategori</th>
+          <th scope="col">Deadline</th>
+          <th scope="col">Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>
+            Apa yang menjadikan tantangan jika terjadi perpindahan karena iklim?
+          </td>
+          <td>Science</td>
+          <td>12/10/2023</td>
+          <td>
+            <a href="{{ url_for('users.introSoal', index=user['index']) }}">
+              <button
+                type="button"
+                class="btn"
+                style="background-color: #5b4d99; height: 42px; color: white"
+              >
+                Kerjakan
+              </button></a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script src="../static/sidebar.js"></script>
+</body>
+{% endblock body_content %}
